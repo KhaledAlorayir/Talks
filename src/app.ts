@@ -38,9 +38,10 @@ app.configure(
     },
     (io) => {
       io.on('connection', (socket) => {
+        console.log('yay');
+        //check if already in queue
+        // on leave chat
         socket.on('join', ({ uid, subject }) => {
-          //check if already in queue
-
           const waitingSocket = queue.get(subject);
           if (waitingSocket) {
             const room = `${socket.id}-${waitingSocket.socketId}-${subject.trim()}`;
@@ -64,7 +65,7 @@ app.configure(
 
         // remove from queue/room on disconnect
         socket.on('disconnect', () => {
-          console.log('yay');
+          console.log('nah');
         });
       });
     }

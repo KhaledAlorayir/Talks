@@ -1,7 +1,8 @@
 import type { Component } from 'solid-js';
+import { client } from './lib/feathers';
 
 const App: Component = () => {
-  return <button class="btn">hi</button>;
+  return <div></div>;
 };
 
 export default App;
